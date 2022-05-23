@@ -2,9 +2,13 @@
 
 import sys
 import datetime
+from pathlib import Path
 
 
-date = sys.argv[1].rsplit(".", 1)[0] if len(sys.argv) > 1 else datetime.date.today()
+try:
+    date = Path(sys.argv[1]).stem
+except:
+    date = datetime.date.today()
 
 body = f"""# {date}: 
 
